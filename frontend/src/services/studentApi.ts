@@ -13,7 +13,6 @@ export const studentApi = createApi({
   tagTypes: ['Subjects', 'Schedule', "Assignments", "Tests"],
   
   endpoints: (builder) => ({
-    // ... baaki purane endpoints yahan rahenge
 
     getStudentSubjects: builder.query<any, void>({
       query: () => ({ url: '/lms-subjects', method: 'GET' }),
@@ -53,29 +52,25 @@ export const studentApi = createApi({
       providesTags: ['Tests'],
     }),
 
-    // 🔴 Naya Join Test Endpoint (GET as per your router)
     joinTest: builder.mutation<any, string>({
       query: (testId) => ({
         url: `/joinTest/${testId}`,
-        method: 'GET', // Backend route router.get hai isliye GET rakha hai
+        method: 'GET', 
       }),
-      // Hum mutation isliye use kar rahe hain kyunki ye ek action hai jo user click par lega
     }),
 
-    // 🔴 Naya Submit Test Endpoint (POST)
     submitTest: builder.mutation<any, { testId: string; answers: any }>({
       query: (body) => ({
         url: '/submitTest',
         method: 'POST',
         body,
       }),
-      invalidatesTags: ['Tests'], // Submit ke baad list refresh ho jayegi
+      invalidatesTags: ['Tests'], 
     }),
 
   }),
 });
 
-// Hooks ko update kar diya hai
 export const { 
   useGetStudentSubjectsQuery, 
   useGetStudentScheduleQuery,

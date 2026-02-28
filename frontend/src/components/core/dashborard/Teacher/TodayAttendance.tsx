@@ -33,7 +33,6 @@ const TodayAttendance: React.FC = () => {
     return 'upcoming';
   };
 
-  // --- REPLACED FaSpinner WITH BRANDED SPINNER ---
   if (isLoading) return (
     <div className="flex flex-col justify-center items-center h-[60vh] gap-4">
       <Spinner />

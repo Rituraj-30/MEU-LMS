@@ -22,7 +22,7 @@ const HodRoute = ({ children }: { children: React.ReactNode }) => {
     }
   }, [token, user, userRole]);
 
-  // --- Spinner Implementation ---
+
   if (loading) {
     return (
       <div className="flex h-screen items-center justify-center">
@@ -30,7 +30,6 @@ const HodRoute = ({ children }: { children: React.ReactNode }) => {
       </div>
     );
   }
-  // ------------------------------
 
   if (token && userRole === "hod") {
     return <>{children}</>;

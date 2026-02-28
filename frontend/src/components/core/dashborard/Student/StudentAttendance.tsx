@@ -5,14 +5,12 @@ import { FaCheckCircle, FaPercentage, FaClock } from 'react-icons/fa';
 import Spinner from '../../../comman/Spinner';
 
 const StudentAttendance: React.FC = () => {
-  // RTK Query Hook
   const { data: response, isLoading } = useGetStudentAttendanceQuery(); 
   const attendance = response?.data;
   
   const { user } = useSelector((state: any) => state.auth);
   const currentUserId = user?._id;
 
-  // --- TIME FORMATTING LOGIC ---
   const formatTime12h = (time: string) => {
     if (!time) return "--:--";
     let [h, m] = time.split(':').map(Number);
@@ -21,7 +19,6 @@ const StudentAttendance: React.FC = () => {
     return `${h}:${m < 10 ? '0' + m : m} ${ampm}`;
   };
 
-  // --- SORTING LOGIC: Latest logs first ---
   const sortedLogs = attendance?.recentLogs ? [...attendance.recentLogs].sort((a, b) => {
     const dateA = new Date(a.date).getTime();
     const dateB = new Date(b.date).getTime();
@@ -29,7 +26,6 @@ const StudentAttendance: React.FC = () => {
     return (b.scheduleId?.startTime || "").localeCompare(a.scheduleId?.startTime || "");
   }) : [];
 
-  // --- REPLACED FaSpinner WITH BRANDED SPINNER ---
   if (isLoading) return (
     <div className="flex justify-center items-center h-[60vh]">
       <Spinner />

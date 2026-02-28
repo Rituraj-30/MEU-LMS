@@ -17,10 +17,8 @@ const Navbar: React.FC = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  // Redux se data nikalna
   const { token, user } = useSelector((state: RootState) => state.auth);
   
-  // Strict check: Agar token aur user dono hain tabhi login maano
   const isLoggedIn = !!token && !!user; 
 
   const handleLogout = () => {
@@ -42,7 +40,6 @@ const Navbar: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           
-          {/* 🔶 Logo Section */}
           <div className="flex-shrink-0 flex items-center">
             <img
               src={logo}
@@ -52,11 +49,9 @@ const Navbar: React.FC = () => {
             />
           </div>
 
-          {/* 🔷 Desktop Menu */}
           <div className="hidden lg:flex items-center gap-4">
             {isLoggedIn ? (
               <div className="flex items-center gap-5">
-                {/* 🟢 Yahan onClick Dashboard ke liye add kiya hai */}
                 <div 
                   onClick={() => navigate("/dashboard")}
                   className="flex items-center gap-3 bg-gray-50/50 pl-4 pr-2 py-1.5 rounded-full border border-gray-100 cursor-pointer hover:bg-gray-100 transition-all"
@@ -105,7 +100,6 @@ const Navbar: React.FC = () => {
             )}
           </div>
 
-          {/* 📱 Mobile Menu Button */}
           <div className="lg:hidden">
             <button onClick={() => setOpen(!open)} className="text-gray-600 p-2">
               {open ? <FaTimes size={28} /> : <FaBars size={28} />}
@@ -114,13 +108,11 @@ const Navbar: React.FC = () => {
         </div>
       </div>
 
-      {/* 📱 Mobile Menu Dropdown */}
       {open && (
         <div className="lg:hidden bg-white border-t border-gray-100 shadow-2xl absolute w-full left-0 z-50">
           <div className="flex flex-col p-6 gap-6">
             {isLoggedIn ? (
               <div className="flex flex-col gap-6">
-                {/* 🟢 Mobile mein bhi Profile section par click add kiya hai */}
                 <div 
                   onClick={() => { navigate("/dashboard"); setOpen(false); }}
                   className="flex items-center gap-4 bg-gray-50 p-4 rounded-2xl border border-gray-100 shadow-inner cursor-pointer"

@@ -4,7 +4,6 @@ import { FaClock, FaExclamationCircle, FaPlayCircle, FaHourglassHalf } from 'rea
 import { useNavigate } from 'react-router-dom';
 import moment from 'moment';
 
-// Branded Spinner Import
 import Spinner from '../../../comman/Spinner';
 
 const StudentTests = () => {
@@ -12,13 +11,11 @@ const StudentTests = () => {
   const navigate = useNavigate();
   const [currentTime, setCurrentTime] = useState(moment());
 
-  // Har minute UI refresh logic
   useEffect(() => {
     const timer = setInterval(() => setCurrentTime(moment()), 60000);
     return () => clearInterval(timer);
   }, []);
 
-  // --- REPLACED FaSpinner WITH BRANDED SPINNER ---
   if (isLoading) return (
     <div className="flex justify-center items-center h-[60vh]">
       <Spinner />
@@ -31,7 +28,6 @@ const StudentTests = () => {
     <div className="p-4 md:p-8 bg-[#f8fafc] min-h-screen">
       <div className="max-w-6xl mx-auto">
         
-        {/* Header Section */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-4">
           <div>
             <h1 className="text-3xl font-black uppercase italic tracking-tighter text-slate-900 leading-none">

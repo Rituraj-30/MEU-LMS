@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import type { RootState } from "../../redux/store";
-import UpdatePasswordModal from "./UpdatePassword"; // Modal Import kiya
+import UpdatePasswordModal from "./UpdatePassword"; 
 import { useUpdateProfileImageMutation } from "../../services/authApi";
 import { setCredentials } from "../../redux/slices/authSlice";
 import { toast } from "react-hot-toast";
@@ -48,8 +48,6 @@ const Profile = () => {
   const dispatch = useDispatch();
 
   const fileInputRef = useRef<HTMLInputElement>(null);
-
-  // Modal toggle state
 
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -280,7 +278,7 @@ const Profile = () => {
               </div>
             </div>
 
-            {/* 📍 Footer Info */}
+     
 
             <div className="mt-8 bg-amber-50 border border-amber-100 p-4 rounded-sm flex justify-between items-center">
               <p className="text-[11px] text-amber-700 italic font-medium">

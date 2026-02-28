@@ -87,7 +87,6 @@ const Test = () => {
     <div className="min-h-screen bg-[#f8fafc] p-2 md:p-6 select-none">
       <div className="max-w-3xl mx-auto bg-white rounded-[2.5rem] shadow-2xl border border-slate-100 overflow-hidden animate-in fade-in zoom-in duration-300">
         
-        {/* Header - Fixed & High Contrast */}
         <div className="p-5 bg-slate-900 text-white flex justify-between items-center border-b-4 border-orange-600">
           <div>
             <h1 className="text-sm font-black uppercase italic tracking-tighter">{res?.data?.testName}</h1>
@@ -109,7 +108,6 @@ const Test = () => {
           </div>
         </div>
 
-        {/* Questions Area */}
         <div className="p-4 md:p-8 space-y-8 max-h-[65vh] overflow-y-auto scroll-smooth">
           {visibleQuestions.map((q: any, idx: number) => {
             const globalIdx = visibleIdx + idx;
@@ -184,7 +182,6 @@ const Test = () => {
         </div>
       </div>
       
-      {/* Footer Info */}
       <p className="mt-4 text-center text-[10px] font-black text-slate-400 uppercase tracking-[0.2em]">
         System Monitoring Active • Secure <span className="text-orange-600">Exam</span> Mode
       </p>

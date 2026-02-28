@@ -36,7 +36,6 @@ const QuizPage = () => {
   };
 
   const submitTest = async () => {
-    // Yahan API call jayegi results save karne
     alert("Test Submitted Successfully!");
     navigate('/student/tests');
   };

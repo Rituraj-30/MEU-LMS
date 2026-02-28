@@ -8,10 +8,8 @@ import logo from "../../assets/imgg/logobg.png";
 import { Eye, EyeOff } from "lucide-react";
 import toast from "react-hot-toast";
 
-// Aapka naya Spinner import kiya
 import Spinner from "../comman/Spinner"; 
 
-// Input Field Component
 interface InputGroupProps {
   label: string;
   type: string;
@@ -173,7 +171,6 @@ const Login: React.FC = () => {
               hover:bg-orange-600 hover:text-white uppercase tracking-[0.2em]
               transition-all duration-300 active:scale-[0.98] flex items-center justify-center gap-2 mt-4 shadow-xl disabled:opacity-50"
             >
-              {/* Button ke andar spinner implementation */}
               {isLoading ? (
                 <div className="scale-50 h-full flex items-center justify-center">
                    <Spinner />

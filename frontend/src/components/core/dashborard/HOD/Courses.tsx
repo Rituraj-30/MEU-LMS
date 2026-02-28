@@ -37,7 +37,6 @@ const Courses = () => {
     <div className="p-4 md:p-6 bg-[#f8fafc] min-h-screen font-sans">
       <div className="max-w-7xl mx-auto">
         
-        {/* Course Header */}
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
           <div>
             <h1 className="text-2xl font-black text-slate-900 tracking-tight flex items-center gap-2">
@@ -56,7 +55,6 @@ const Courses = () => {
           </button>
         </div>
 
-        {/* Search */}
         <div className="mb-6 max-w-md">
           <div className="relative">
             <FaSearch className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" />
@@ -68,7 +66,6 @@ const Courses = () => {
           </div>
         </div>
 
-        {/* Table View */}
         <div className="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm">
           <table className="w-full text-left border-collapse">
             <thead>
@@ -82,7 +79,6 @@ const Courses = () => {
               {isLoading ? (
                 <tr>
                   <td colSpan={3} className="py-20 text-center">
-                    {/* Table loading ke liye naya spinner */}
                     <div className="flex justify-center scale-75">
                        <Spinner />
                     </div>
@@ -104,7 +100,6 @@ const Courses = () => {
         </div>
       </div>
 
-      {/* --- MODAL: CREATE COURSE --- */}
       {isModalOpen && (
         <div className="fixed inset-0 z-[110] flex items-center justify-center p-4 bg-slate-900/40 backdrop-blur-sm">
           <div className="bg-white w-full max-w-md rounded-3xl overflow-hidden shadow-2xl animate-in zoom-in-95">

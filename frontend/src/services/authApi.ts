@@ -39,7 +39,7 @@ export const authApi = createApi({
     // GET USER DETAILS
     getUserDetails: builder.query({
       query: () => "getUserDetails",
-      providesTags: ["User"], // Refresh hone par ye data update karega
+      providesTags: ["User"], 
       async onQueryStarted( { queryFulfilled }) {
         try {
           const { data } = await queryFulfilled;
@@ -52,14 +52,13 @@ export const authApi = createApi({
       },
     }),
 
-    // UPDATE PROFILE IMAGE MUTATION
     updateProfileImage: builder.mutation({
       query: (formData) => ({
         url: "updateUserProfileImage",
         method: "PUT",
-        body: formData, // FormData automatically handles headers for files
+        body: formData, 
       }),
-      invalidatesTags: ["User"], // Isse automatic Dashboard refresh ho jayega upload ke baad
+      invalidatesTags: ["User"],
     }),
 
    updatePassword: builder.mutation({

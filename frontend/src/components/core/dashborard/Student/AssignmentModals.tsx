@@ -15,7 +15,6 @@ const AssignmentModals: React.FC<ModalProps> = ({ type, data, onClose }) => {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
-  // RTK Query Mutation Hook
   const [submitAssignment, { isLoading }] = useSubmitAssignmentMutation();
 
   // Deadline Logic: Check if current time is past the deadline
@@ -65,7 +64,7 @@ const AssignmentModals: React.FC<ModalProps> = ({ type, data, onClose }) => {
     }
   };
 
-  // --- VIEW QUESTIONS MODE ---
+  // --- VIEW QUESTIONS MODE 
   if (type === 'view') {
     return (
       <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-slate-900/40 backdrop-blur-sm animate-in fade-in duration-200">
@@ -93,7 +92,7 @@ const AssignmentModals: React.FC<ModalProps> = ({ type, data, onClose }) => {
     );
   }
 
-  // --- SUBMIT PDF MODE (COMPACT) ---
+  // --- SUBMIT PDF MODE (COMPACT) 
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-slate-900/40 backdrop-blur-sm animate-in zoom-in duration-200">
       <div className="bg-white w-full max-w-sm rounded-[2.5rem] shadow-2xl border border-slate-50 overflow-hidden">

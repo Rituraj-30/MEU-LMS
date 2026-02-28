@@ -23,7 +23,6 @@ const SemesterList = () => {
     group.courseId?.courseName.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-  // --- Naya Spinner Implementation ---
   if (groupsLoading) {
     return (
       <div className="flex h-screen items-center justify-center bg-[#f8fafc]">
@@ -31,13 +30,11 @@ const SemesterList = () => {
       </div>
     );
   }
-  // -----------------------------------
 
   return (
     <div className="p-4 md:p-6 bg-[#f8fafc] min-h-screen font-sans">
       <div className="max-w-7xl mx-auto">
         
-        {/* Header Section */}
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
           <div>
             <h1 className="text-2xl font-black text-slate-900 tracking-tight flex items-center gap-2">
@@ -53,7 +50,6 @@ const SemesterList = () => {
           </button>
         </div>
 
-        {/* Search */}
         <div className="mb-6 max-w-md">
           <div className="relative">
             <FaSearch className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" />
@@ -97,7 +93,6 @@ const SemesterList = () => {
             </tbody>
           </table>
           
-          {/* Edge Case: Empty Search Results */}
           {!groupsLoading && filteredGroups?.length === 0 && (
             <div className="py-20 text-center text-slate-400 font-bold uppercase text-xs tracking-widest">
               No matching courses found

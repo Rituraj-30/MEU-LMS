@@ -6,7 +6,6 @@ const PrivateRoute = ({ children }: { children: React.ReactNode }) => {
   const { token } = useSelector((state: RootState) => state.auth);
   const location = useLocation();
 
-  // Refresh safe logic
   const currentToken = token || localStorage.getItem("token");
 
   if (currentToken) {

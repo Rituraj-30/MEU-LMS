@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { FaChevronDown, FaChevronRight } from "react-icons/fa";
 
-// 1. Menu Data ke liye Interface
 interface MenuData {
   about: string[];
   academics: string[];
@@ -13,7 +12,6 @@ interface MenuData {
 }
 
 const SecondaryNavbar: React.FC = () => {
-  // 2. States with Strict Typing
   const [activeDropdown, setActiveDropdown] = useState<keyof MenuData | "contact" | "chancellor" | null>(null);
   const [showFacilities, setShowFacilities] = useState<boolean>(false);
 
@@ -55,7 +53,6 @@ const SecondaryNavbar: React.FC = () => {
             </li>
           ))}
 
-          {/* Special Case: ADMISSIONS (Mega Menu style) */}
           <li 
             className="relative h-full flex items-center" 
             onMouseEnter={() => setActiveDropdown("admissions")} 

@@ -18,8 +18,8 @@ const ContentForm: React.FC<AiFormProps> = ({ type, mutationHook }) => {
     // Form State
     const [formData, setFormData] = useState({
         title: '',
-        date: '', // Deadline for assignment, Start Time for test
-        value: isTest ? 30 : 10, // Duration for test, Marks for assignment
+        date: '', 
+        value: isTest ? 30 : 10, 
         subjectCode: '',
     });
     const [topicInput, setTopicInput] = useState('');

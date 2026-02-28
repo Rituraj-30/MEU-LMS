@@ -54,7 +54,6 @@ const SecondaryNavbar: React.FC = () => {
         
         <div className="flex-1 flex items-center justify-start md:justify-center gap-2 overflow-x-auto no-scrollbar">
           {menuItems.map((item) => {
-            // Agar path "#" hai, toh NavLink ke bajaye normal Div dikhao
             if (item.path === "#") {
               return (
                 <div
@@ -68,7 +67,6 @@ const SecondaryNavbar: React.FC = () => {
               );
             }
 
-            // Baaki real paths ke liye NavLink
             return (
               <NavLink
                 key={item.path}

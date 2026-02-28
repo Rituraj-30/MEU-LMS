@@ -21,7 +21,6 @@ const MUAboutSection: React.FC = () => {
     <div className="w-full bg-white py-12 font-sans">
       <div className="max-w-[1400px] mx-auto px-6">
         
-        {/* Top Heading Block */}
         <div className="text-center mb-12">
           <h3 className="text-orange-600 font-bold text-sm tracking-[0.3em] uppercase mb-4">
             A Campus That Every Student Loves

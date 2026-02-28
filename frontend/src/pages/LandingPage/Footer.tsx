@@ -46,11 +46,8 @@ const MUFooter: React.FC = () => {
   return (
     <footer className="w-full bg-white text-slate-900 pt-14 pb-8 font-sans border-t border-slate-100">
       <div className="max-w-[1400px] mx-auto px-6">
-        
-        {/* Adjusted Grid: column 2 and 3 are tighter to give space to column 4 */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1fr_0.8fr_1.2fr_1.5fr] gap-6 mb-10">
           
-          {/* Column 1: Quick Links */}
           <div className="space-y-6">
             <h4 className="text-lg font-black border-l-4 border-orange-600 pl-4 uppercase tracking-wider text-slate-900">
               Quick Links
@@ -66,7 +63,6 @@ const MUFooter: React.FC = () => {
             </ul>
           </div>
 
-          {/* Column 2: Explore (Thoda Narrow kiya hai) */}
           <div className="space-y-6">
             <h4 className="text-lg font-black border-l-4 border-orange-600 pl-4 uppercase tracking-wider text-slate-900">
               Explore
@@ -82,7 +78,6 @@ const MUFooter: React.FC = () => {
             </ul>
           </div>
 
-          {/* Column 3: Collaboration (Explore ke pass shift kiya) */}
           <div className="lg:pr-4"> 
             <p className="text-slate-500 text-[13px] leading-relaxed text-justify font-medium pt-0 lg:pt-12">
               The Microsoft CMT service was used for managing the peer-reviewing process for university conferences. 
@@ -90,7 +85,6 @@ const MUFooter: React.FC = () => {
             </p>
           </div>
 
-          {/* Column 4: Mandsaur University (Ab ye break nahi hoga) */}
           <div className="space-y-6">
             <h4 className="text-lg font-black border-l-4 border-orange-600 pl-4 uppercase tracking-wider text-slate-900 whitespace-nowrap">
               Mandsaur University

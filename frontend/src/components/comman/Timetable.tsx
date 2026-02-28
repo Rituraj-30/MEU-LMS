@@ -23,7 +23,6 @@ const Timetable: React.FC<TimetableProps> = ({ data, isLoading, role }) => {
     return `${convert(parts[0])} to ${convert(parts[1])}`;
   };
 
-  // Unique time slots nikalne ke liye
   const timeSlots = Array.from(
     new Set(scheduleData.map((s: any) => `${s.startTime} to ${s.endTime}`))
   ).sort();
@@ -50,7 +49,6 @@ const Timetable: React.FC<TimetableProps> = ({ data, isLoading, role }) => {
             <table className="w-full border-collapse border border-slate-300">
               <thead>
                 <tr className="bg-slate-100">
-                  {/* Time Slot column ki width fix kar di */}
                   <th className="border border-slate-300 p-3 text-[11px] font-black text-slate-600 uppercase text-center w-28 min-w-[110px]">
                     Time Slot
                   </th>
@@ -77,12 +75,10 @@ const Timetable: React.FC<TimetableProps> = ({ data, isLoading, role }) => {
                         <td key={`${day}-${slot}`} className="border border-slate-300 p-2 min-w-[130px] align-top">
                           {lecture ? (
                             <div className="flex flex-col gap-1 text-center">
-                              {/* Subject dikhane ka logic fix kiya */}
                               <span className="text-[10px] font-black text-blue-700 leading-tight uppercase">
                                 {lecture.subjectCode || lecture.subject} - {lecture.semesterGroupId?.courseId?.courseName || 'Class'}
                               </span>
                               
-                              {/* Role based info: Student ko Prof dikhao, Prof ko Batch */}
                               <span className="text-[9px] font-bold text-slate-500 uppercase">
                                 {role === 'Student' 
                                   ? `Prof: ${lecture.teacherId?.name || 'Assigned'}` 

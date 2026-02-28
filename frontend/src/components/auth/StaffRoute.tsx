@@ -14,17 +14,14 @@ const StaffRoute = ({ children }: { children: React.ReactNode }) => {
 
   const location = useLocation();
   
-  // Backend se 'role' aa raha hai, use lowercase mein check karenge
   const userRole = user?.role?.toLowerCase();
 
   useEffect(() => {
-    // Agar role staff ya teacher nahi hai toh error dikhao
     if (token && user && (userRole !== "staff" && userRole !== "teacher")) {
       toast.error(`Access Denied! ${user.role} cannot access staff area.`);
     }
   }, [token, user, userRole]);
 
-  // --- Spinner Block ---
   if (loading) {
     return (
       <div className="flex h-screen items-center justify-center bg-black/5">
@@ -32,9 +29,6 @@ const StaffRoute = ({ children }: { children: React.ReactNode }) => {
       </div>
     );
   }
-  // --------------------
-
-  // Final check using 'role'
   if (token && (userRole === "staff" || userRole === "teacher")) {
     return <>{children}</>;
   }

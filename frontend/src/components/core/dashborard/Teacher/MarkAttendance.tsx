@@ -8,7 +8,6 @@ import {
 import { FaUserCheck, FaUserTimes, FaArrowLeft, FaUser } from 'react-icons/fa';
 import toast from 'react-hot-toast';
 
-// Branded Spinner Import
 import Spinner from '../../../comman/Spinner';
 
 const MarkAttendance: React.FC = () => {
@@ -72,7 +71,6 @@ const MarkAttendance: React.FC = () => {
 
   const isTrulyLoading = (loadingStudents || loadingExisting) && !students;
 
-  // --- REPLACED FaSpinner WITH BRANDED SPINNER ---
   if (isTrulyLoading) {
     return (
       <div className="flex flex-col justify-center items-center h-screen bg-[#f8fafc] gap-6">

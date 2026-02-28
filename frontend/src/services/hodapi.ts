@@ -12,7 +12,6 @@ export const hodApi = createApi({
       return headers;
     },
   }),
-  // "Teachers" tag add kiya hai taaki list auto-refresh ho
   tagTypes: ["Subjects", "Courses", "Teachers", "Semesters"],
 
   endpoints: (builder) => ({
@@ -93,7 +92,7 @@ createSchedule: builder.mutation({
     method: "POST",
     body: data,
   }),
-  invalidatesTags: ["Semesters"], // Refresh karne ke liye
+  invalidatesTags: ["Semesters"], 
 }),
 
   

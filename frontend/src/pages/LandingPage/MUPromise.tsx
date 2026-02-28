@@ -5,7 +5,6 @@ import {
   FaVolumeMute, FaVolumeUp 
 } from "react-icons/fa";
 
-// --- Interfaces for Type Safety ---
 interface Discipline {
   title: string;
   items: string[];
@@ -16,11 +15,10 @@ interface Feature {
   id: number;
   title: string;
   desc: string;
-  icon: ReactNode; // Since icons are JSX elements
+  icon: ReactNode; 
 }
 
 const MUPromise: React.FC = () => {
-  // TypeScript Ref for Video Element
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const [isMuted, setIsMuted] = useState<boolean>(true);
 
@@ -108,7 +106,6 @@ const MUPromise: React.FC = () => {
         </div>
       </div>
 
-      {/* SECTION 2: Future of Education with VIDEO */}
       <div className="max-w-[1400px] mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-black text-slate-900 uppercase tracking-tighter">

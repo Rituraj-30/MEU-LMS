@@ -9,7 +9,6 @@ interface CardProps {
 
 const AssignmentCard: React.FC<CardProps> = ({ item, onView, onSubmit }) => {
   const isSubmitted = item.isSubmitted === true;
-  // Backend se marks nikal rahe hain
   const marks = item.submissionDetails?.marksObtained;
 
   return (

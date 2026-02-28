@@ -3,7 +3,7 @@ import LatestEventsBox from "./LatestEventsBox";
 import MUPromise from "./MUPromise";
 import MUAboutSection from "./MUAboutSection";
 import MUSuccessSection from "./MUSuccessSection";
-import Footer from "./Footer"; // Fixed the typo here (Footer. to Footer)
+import Footer from "./Footer";
 
 const Landingpage: React.FC = () => {
   return (

@@ -7,7 +7,6 @@ import Spinner from '../../../comman/Spinner';
 const StudentLMS: React.FC = () => {
   const { data, isLoading, isError } = useGetStudentSubjectsQuery();
 
-  // --- REPLACED FaSpinner WITH BRANDED SPINNER ---
   if (isLoading) {
     return (
       <div className="flex justify-center items-center h-screen bg-[#f8fafc]">

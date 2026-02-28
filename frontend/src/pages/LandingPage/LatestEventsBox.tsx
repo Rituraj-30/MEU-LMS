@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { FaChevronLeft, FaChevronRight, FaCalendarAlt, FaMapMarkerAlt, FaRocket } from "react-icons/fa";
 
-// 1. Data Structure ke liye Interface
 interface EventItem {
   id: number;
   title: string;
@@ -28,7 +27,6 @@ const LatestEventsBox: React.FC = () => {
   const [startIndex, setStartIndex] = useState<number>(eventData.length);
   const [isTransitioning, setIsTransitioning] = useState<boolean>(true);
 
-  // --- CONFIG ---
   const cardWidth: number = 280; 
   const gap: number = 12; 
 
@@ -52,7 +50,6 @@ const LatestEventsBox: React.FC = () => {
   const nextSlide = () => setStartIndex((prev) => prev + 1);
   const prevSlide = () => setStartIndex((prev) => prev - 1);
 
-  // Dynamic Color Helper
   const getBorderColor = (colorClass: string): string => {
     const color = colorClass.split('-')[1];
     switch(color) {

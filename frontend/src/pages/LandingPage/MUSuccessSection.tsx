@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { FaChevronLeft, FaChevronRight, FaBullseye, FaEye } from "react-icons/fa";
 
-// 1. Student Data ke liye Interface
 interface Student {
   name: string;
   package: string;

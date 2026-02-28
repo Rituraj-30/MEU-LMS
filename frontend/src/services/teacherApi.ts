@@ -1,4 +1,4 @@
-// services/teacherApi.ts
+
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 export const teacherApi = createApi({
@@ -11,7 +11,7 @@ export const teacherApi = createApi({
       return headers;
     },
   }),
-  tagTypes: ['Assignments', "Attendance","Tests"], // Tags for automatic re-fetching
+  tagTypes: ['Assignments', "Attendance","Tests"],
   endpoints: (builder) => ({
     getTeacherSubjects: builder.query<any, void>({
       query: () => ({
@@ -55,17 +55,16 @@ export const teacherApi = createApi({
 
     createAssignment: builder.mutation<any, any>({
       query: (assignmentData) => ({
-        url: '/createAssignment', // Match your router.post path
+        url: '/createAssignment',
         method: 'POST',
         body: assignmentData,
       }),
-      // Assignment create hone ke baad agar aapki koi list hai toh usse refresh karne ke liye
       invalidatesTags: ['Assignments'], 
     }),
 
     createTest: builder.mutation<any, any>({
       query: (testData) => ({
-        url: '/createTest', // Backend route se match karna chahiye
+        url: '/createTest',
         method: 'POST',
         body: testData,
       }),
@@ -75,7 +74,6 @@ export const teacherApi = createApi({
   }),
 });
 
-// Hooks export karo
 export const { 
   useGetTeacherSubjectsQuery, 
   useGetTeacherScheduleQuery,
@@ -83,5 +81,5 @@ export const {
   useSubmitAttendanceMutation,
   useGetExistingAttendanceQuery,
   useCreateAssignmentMutation,
-  useCreateTestMutation // Naya hook export ho gaya!
+  useCreateTestMutation
 } = teacherApi;
