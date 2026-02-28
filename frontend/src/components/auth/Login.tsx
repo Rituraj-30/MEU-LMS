@@ -9,6 +9,7 @@ import { Eye, EyeOff } from "lucide-react";
 import toast from "react-hot-toast";
 
 import Spinner from "../comman/Spinner"; 
+import GetAccountModal from "./GetAccountModal"; 
 
 interface InputGroupProps {
   label: string;
@@ -60,6 +61,7 @@ const Login: React.FC = () => {
     password: "",
   });
   const [showPassword, setShowPassword] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false); // Modal State
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -92,6 +94,10 @@ const Login: React.FC = () => {
 
   return (
     <div className="h-screen w-full relative flex items-stretch justify-end overflow-hidden font-sans bg-black">
+      
+      {/* Get Account Modal Integration */}
+      <GetAccountModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+
       {/* Background Section */}
       <div
         className="absolute inset-0 z-0 bg-cover bg-center"
@@ -155,7 +161,16 @@ const Login: React.FC = () => {
               onTogglePassword={() => setShowPassword(!showPassword)}
             />
 
-            <div className="flex justify-end">
+            <div className="flex justify-between items-center">
+              {/* GET ACCOUNT BOX */}
+              <button
+                type="button"
+                onClick={() => setIsModalOpen(true)}
+                className="text-[10px] text-orange-500 border border-orange-500/30 px-2 py-1 rounded bg-orange-500/5 hover:bg-orange-500/10 transition-all uppercase tracking-widest font-bold"
+              >
+                Get Account?
+              </button>
+
               <a
                 href="#"
                 className="text-[10px] text-gray-500 hover:text-orange-500 uppercase tracking-widest font-bold transition-colors"
