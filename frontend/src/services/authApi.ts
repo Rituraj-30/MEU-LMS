@@ -13,7 +13,7 @@ export const authApi = createApi({
       return headers;
     },
   }),
-  tagTypes: ["User"], 
+  tagTypes: ["User"],
   endpoints: (builder) => ({
     // LOGIN MUTATION
     login: builder.mutation({
@@ -22,7 +22,7 @@ export const authApi = createApi({
         method: "POST",
         body: credentials,
       }),
-      async onQueryStarted({ queryFulfilled }) {
+      async onQueryStarted(_arg, { queryFulfilled }) {
         try {
           const { data } = await queryFulfilled;
           if (data?.token) {
@@ -39,8 +39,8 @@ export const authApi = createApi({
     // GET USER DETAILS
     getUserDetails: builder.query({
       query: () => "getUserDetails",
-      providesTags: ["User"], 
-      async onQueryStarted( { queryFulfilled }) {
+      providesTags: ["User"],
+      async onQueryStarted(_arg, { queryFulfilled }) {
         try {
           const { data } = await queryFulfilled;
           if (data?.data) {
@@ -52,30 +52,7 @@ export const authApi = createApi({
       },
     }),
 
+    // UPDATE PROFILE IMAGE
     updateProfileImage: builder.mutation({
       query: (formData) => ({
-        url: "updateUserProfileImage",
-        method: "PUT",
-        body: formData, 
-      }),
-      invalidatesTags: ["User"],
-    }),
-
-   updatePassword: builder.mutation({
-  query: (passwordData) => ({
-    url: "updatePassword",
-    method: "POST",
-    body: passwordData, 
-  }),
-}),
-
-  }),
-});
-
-export const { 
-  useLoginMutation, 
-  useGetUserDetailsQuery, 
-  useUpdateProfileImageMutation ,
-  useUpdatePasswordMutation
-
-} = authApi;
+        url:
