@@ -15,7 +15,6 @@ export const authApi = createApi({
   }),
   tagTypes: ["User"],
   endpoints: (builder) => ({
-    // LOGIN MUTATION
     login: builder.mutation({
       query: (credentials) => ({
         url: "login",
@@ -36,7 +35,6 @@ export const authApi = createApi({
       invalidatesTags: ["User"],
     }),
 
-    // GET USER DETAILS
     getUserDetails: builder.query({
       query: () => "getUserDetails",
       providesTags: ["User"],
@@ -52,7 +50,28 @@ export const authApi = createApi({
       },
     }),
 
-    // UPDATE PROFILE IMAGE
     updateProfileImage: builder.mutation({
       query: (formData) => ({
-        url:
+        url: "updateUserProfileImage",
+        method: "PUT",
+        body: formData,
+      }),
+      invalidatesTags: ["User"],
+    }),
+
+    updatePassword: builder.mutation({
+      query: (passwordData) => ({
+        url: "updatePassword",
+        method: "POST",
+        body: passwordData,
+      }),
+    }),
+  }),
+});
+
+export const {
+  useLoginMutation,
+  useGetUserDetailsQuery,
+  useUpdateProfileImageMutation,
+  useUpdatePasswordMutation,
+} = authApi;
