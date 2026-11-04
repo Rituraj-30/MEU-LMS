@@ -30,10 +30,10 @@ export const createSchedule = async (req: Request, res: Response) => {
       return res.status(404).json({ message: `Subject '${subjectCode}' not found. Check the subject code.` });
     }
 
-    const actualTeacherId = subjectDoc.teacherIds[0]?.toString();
-    if (!actualTeacherId) {
-      return res.status(400).json({ message: "No teacher is assigned to this subject." });
-    }
+  const actualTeacherId = subjectDoc.teacherIds?.toString();
+if (!actualTeacherId) {
+  return res.status(400).json({ message: "No teacher is assigned to this subject." });
+}
 
     const timeOverlap = { startTime: { $lt: endTime }, endTime: { $gt: startTime } };
 
