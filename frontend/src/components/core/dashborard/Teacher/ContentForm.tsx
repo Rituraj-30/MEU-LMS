@@ -38,15 +38,22 @@ const ContentForm: React.FC<AiFormProps> = ({ type, mutationHook }) => {
             return toast.error("Please fill all fields!");
         }
 
+        // The date input value has no timezone information.
+        // new Date(...) reads it in the browser's local timezone, and toISOString()
+        // converts it to UTC, so the server stores the exact moment the teacher picked.
+        // For assignments, the deadline is set to the end of the selected day (23:59 local time).
+        const startAtIso = isTest ? new Date(formData.date).toISOString() : "";
+        const deadlineIso = !isTest ? new Date(`${formData.date}T23:59:00`).toISOString() : "";
+
         const payload = isTest ? {
             testName: formData.title,
-            testDate: formData.date,
+            testDate: startAtIso,
             duration: formData.value,
             subjectCode: formData.subjectCode,
             topics
         } : {
             title: formData.title,
-            deadline: formData.date,
+            deadline: deadlineIso,
             totalMarks: formData.value,
             subjectCode: formData.subjectCode,
             topics
@@ -75,7 +82,7 @@ const ContentForm: React.FC<AiFormProps> = ({ type, mutationHook }) => {
                             Create <span className="text-orange-600">AI {type}</span>
                         </h1>
                         <p className="text-[8px] font-bold text-slate-400 uppercase tracking-widest italic">
-                            Powered by Gemini 1.5 Flash
+                            Powered by Gemini
                         </p>
                     </div>
                     <button 
