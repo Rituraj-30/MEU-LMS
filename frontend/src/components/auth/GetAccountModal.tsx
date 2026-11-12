@@ -11,9 +11,9 @@ const GetAccountModal: React.FC<GetAccountModalProps> = ({ isOpen, onClose }) =>
   if (!isOpen) return null;
 
   const demoAccounts = [
-    { role: 'HOD', email: 'hod@mu.edu.in', pass: 'hod123' },
-    { role: 'Staff', email: 'TestFaculty@gmail.com', pass: 'TestFaculty' },
-    { role: 'Student', email: 'TestStudent@gmail.com', pass: 'TestStudent' },
+    { role: 'HOD', email: 'prabhat.kumar@gmail.com', pass: 'hod123' },
+    { role: 'Staff', email: 'anoop.sunarthy@gmail.com', pass: 'Teacher@123' },
+    { role: 'Student', email: 'payal@gmail.comm', pass: 'Student123' },
   ];
 
   const copyToClipboard = (text: string) => {
